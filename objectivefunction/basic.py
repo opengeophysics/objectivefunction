@@ -7,17 +7,17 @@ import numpy as np
 import scipy.sparse as sp
 from six import integer_types
 
+import properties
 from matrixutils import Identity, Zero
 from SimPEG.Tests import checkDerivative
 from SimPEG import Maps
-from SimPEG import Props
 
 __all__ = [
     'BaseObjectiveFunction', 'ComboObjectiveFunction', 'L2ObjectiveFunction'
 ]
 
 
-class BaseObjectiveFunction(Props.BaseSimPEG):
+class BaseObjectiveFunction(properties.HasProperties):
     """Base Objective Function
 
     Inherit this to build your own objective function. If building a
