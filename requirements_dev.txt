@@ -1,0 +1,8 @@
+sphinx
+sphinx_rtd_theme
+sphinx-gallery
+nose
+nose-cov
+pylint
+wheel
+twine
