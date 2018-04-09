@@ -189,30 +189,31 @@ class BaseObjectiveFunction(properties.HasProperties):
 
 
 class ComboObjectiveFunction(BaseObjectiveFunction):
-    """
-    A composite objective function that consists of multiple objective
+    """A composite objective function that consists of multiple objective
     functions. Objective functions are stored in a list, and multipliers
     are stored in a parallel list.
 
-    .. code::python
+    .. code::
+        python
 
-        import SimPEG.ObjectiveFunction
-        phi1 = ObjectiveFunction.L2ObjectiveFunction(nP=10)
-        phi2 = ObjectiveFunction.L2ObjectiveFunction(nP=10)
+        import objectivefunction
+        phi1 = objectivefunction.L2ObjectiveFunction(nP=10)
+        phi2 = objectivefunction.L2ObjectiveFunction(nP=10)
 
-        phi = 2*phi1 + 3*phi2
+        phi = 2 * phi1 + 3 * phi2
 
-    is equivalent to
+    is equivalent to:
 
-        .. code::python
+    .. code::
+        python
 
-            import SimPEG.ObjectiveFunction
-            phi1 = ObjectiveFunction.L2ObjectiveFunction(nP=10)
-            phi2 = ObjectiveFunction.L2ObjectiveFunction(nP=10)
+        import objectivefunction
+        phi1 = objectivefunction.L2ObjectiveFunction(nP=10)
+        phi2 = objectivefunction.L2ObjectiveFunction(nP=10)
 
-            phi = ObjectiveFunction.ComboObjectiveFunction(
-                [phi1, phi2], [2, 3]
-            )
+        phi = objectivefunction.ComboObjectiveFunction(
+            [phi1, phi2], [2, 3]
+        )
 
     """
     _multiplier_types = (float, None, Zero, np.float64) + integer_types  # Directive
